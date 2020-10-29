@@ -23,7 +23,7 @@ jest.mock("../api/fetchShow");
 
 test("renders list of show episodes from API", async () => {
   //mock resolved results
-  await mockFetchShow.mockResolvedValueOnce({
+   mockFetchShow.mockResolvedValueOnce({
     data: {
       id: 2993,
       url: "http://www.tvmaze.com/shows/2993/stranger-things",
@@ -745,7 +745,7 @@ test("renders list of show episodes from API", async () => {
 
   const { getByText, getByTestId } = render(<App />);
     expect(mockFetchShow).toHaveBeenCalledTimes(1);
-     waitFor(() => {
+    await waitFor(() => {
         fireEvent.click(getByText(/Select a season/i));
     });
     waitFor(() => {
